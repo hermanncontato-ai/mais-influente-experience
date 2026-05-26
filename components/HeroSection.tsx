@@ -179,9 +179,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
-            className="hidden lg:flex flex-col items-center"
+            className="flex flex-col items-center mt-10 lg:mt-0"
           >
-            <div className="relative">
+            <div className="relative w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[340px]">
               {/* Gold atmospheric glow behind magazine */}
               <div
                 className="absolute pointer-events-none"
@@ -196,9 +196,8 @@ export default function HeroSection() {
 
               {/* Magazine cover */}
               <div
-                className="relative overflow-hidden"
+                className="relative overflow-hidden w-full"
                 style={{
-                  width: "340px",
                   boxShadow:
                     "0 60px 130px rgba(0,0,0,0.9), 0 0 0 1px rgba(201,168,76,0.2), inset 0 1px 0 rgba(255,255,255,0.06)",
                 }}
@@ -208,8 +207,9 @@ export default function HeroSection() {
                   alt="Capa Mais Influente Maio 2026"
                   width={340}
                   height={490}
-                  className="block w-full"
+                  className="block w-full h-auto"
                   priority
+                  sizes="(min-width: 1024px) 340px, (min-width: 640px) 300px, 260px"
                 />
                 {/* Glass sheen overlay */}
                 <div
