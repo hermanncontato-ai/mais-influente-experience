@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #080808;
+  --color-foreground: #f0ede6;
+  --color-gold: #c9a84c;
+  --color-gold-light: #e2c06a;
+  --color-gold-dark: #a8892f;
+  --color-gold-muted: rgba(201, 168, 76, 0.15);
+  --color-editorial-gray: #888888;
+  --color-editorial-dark: #101010;
+  --color-editorial-card: #141414;
+  --color-editorial-border: #2a2a2a;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+}
+
+:root {
+  --gold: #c9a84c;
+  --gold-rgb: 201, 168, 76;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #080808;
+  color: #f0ede6;
+  font-family: var(--font-inter, system-ui, sans-serif);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gold scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a84c;
+  border-radius: 2px;
+}
+
+/* Gold selection */
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: #f0ede6;
+}
+
+/* Gold line utility */
+.gold-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #c9a84c;
+}
+
+.gold-line-full {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+}
+
+/* Editorial text utilities */
+.editorial-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  font-family: var(--font-inter, sans-serif);
+}
+
+/* Cinematic overlay gradient */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 8, 8, 0.3) 0%,
+    rgba(8, 8, 8, 0.1) 40%,
+    rgba(8, 8, 8, 0.6) 80%,
+    rgba(8, 8, 8, 1) 100%
+  );
+}
+
+/* Image placeholder gradients */
+.cover-gradient {
+  background: linear-gradient(135deg, #1a1410 0%, #2d1f0e 30%, #1a1208 60%, #0d0d0d 100%);
+}
+
+.karla-gradient {
+  background: linear-gradient(160deg, #1a1218 0%, #2a1520 40%, #1a1015 70%, #0d0d0d 100%);
+}
+
+.moda-gradient {
+  background: linear-gradient(145deg, #0d1020 0%, #141628 40%, #0a0c1a 70%, #080808 100%);
+}
+
+.casa-gradient {
+  background: linear-gradient(145deg, #0d1510 0%, #1a2c1a 40%, #0d180d 70%, #080808 100%);
+}
+
+.morar-gradient {
+  background: linear-gradient(145deg, #151208 0%, #2a2010 40%, #181408 70%, #080808 100%);
+}
+
+.saude-gradient {
+  background: linear-gradient(145deg, #0d1520 0%, #142030 40%, #0a1018 70%, #080808 100%);
+}
+
+/* Section transitions */
+.section-fade-bottom {
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+}
+
+/* Button shine effect */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-gold:hover::after {
+  left: 100%;
+}
+
+/* Card hover glow */
+.card-hover-gold {
+  transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+}
+
+.card-hover-gold:hover {
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.12);
+  border-color: rgba(201, 168, 76, 0.4) !important;
+}
+
+/* Text gradient gold */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #c9a84c 0%, #e2c06a 50%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise texture overlay */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Input focus gold */
+input.input-gold:focus {
+  outline: none;
+  border-color: #c9a84c;
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.3);
+}
+
+/* Animated underline */
+.animated-underline {
+  position: relative;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #c9a84c;
+  transition: width 0.4s ease;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
