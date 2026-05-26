@@ -142,17 +142,11 @@ export default function InteractiveIndex() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
         >
           {sections.map((section, i) => {
-            const CardTag = section.link ? motion.a : motion.div;
-            const linkProps = section.link
-              ? { href: section.link, target: "_blank", rel: "noopener noreferrer" }
-              : {};
-            return (
-              <CardTag
-                key={i}
+            const cardInner = (
+              <motion.div
                 variants={cardVariants}
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="card-hover-gold group relative cursor-pointer border border-[#1e1e1e] bg-[#0d0d0d] overflow-hidden"
-                {...linkProps}
+                className="card-hover-gold group relative cursor-pointer border border-[#1e1e1e] bg-[#0d0d0d] overflow-hidden h-full"
               >
                 {/* Gradient background */}
                 <div
@@ -208,7 +202,21 @@ export default function InteractiveIndex() {
                     </div>
                   </div>
                 </div>
-              </CardTag>
+              </motion.div>
+            );
+
+            return section.link ? (
+              <a
+                key={i}
+                href={section.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                {cardInner}
+              </a>
+            ) : (
+              <div key={i}>{cardInner}</div>
             );
           })}
         </motion.div>

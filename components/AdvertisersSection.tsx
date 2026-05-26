@@ -123,17 +123,11 @@ export default function AdvertisersSection() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {advertisers.map((adv, i) => {
-            const CardTag = adv.link ? motion.a : motion.div;
-            const linkProps = adv.link
-              ? { href: adv.link, target: "_blank", rel: "noopener noreferrer" }
-              : {};
-            return (
-              <CardTag
-                key={i}
+            const cardInner = (
+              <motion.div
                 variants={cardVariants}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="group relative border border-[#1e1e1e] bg-[#0a0a0a] overflow-hidden card-hover-gold cursor-pointer"
-                {...linkProps}
+                className="group relative border border-[#1e1e1e] bg-[#0a0a0a] overflow-hidden card-hover-gold cursor-pointer h-full"
               >
                 {/* Gradient bg */}
                 <div
@@ -197,7 +191,21 @@ export default function AdvertisersSection() {
                     </span>
                   </div>
                 </div>
-              </CardTag>
+              </motion.div>
+            );
+
+            return adv.link ? (
+              <a
+                key={i}
+                href={adv.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                {cardInner}
+              </a>
+            ) : (
+              <div key={i}>{cardInner}</div>
             );
           })}
         </motion.div>

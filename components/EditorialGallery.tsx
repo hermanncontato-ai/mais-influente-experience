@@ -170,6 +170,7 @@ export default function EditorialGallery() {
                   src={item.image}
                   alt={item.caption}
                   fill
+                  sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ objectPosition: item.pos ?? "center center" }}
                   onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}

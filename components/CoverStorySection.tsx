@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function CoverStorySection() {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -40,12 +41,14 @@ export default function CoverStorySection() {
           className="absolute inset-0"
           style={{ filter: "blur(40px)", opacity: 0.3, transform: "scale(1.15)" }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/images/magazine/karla-felmanas/banner-karla.png"
             alt=""
             aria-hidden="true"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+            fill
+            sizes="100vw"
+            quality={60}
+            style={{ objectFit: "cover", objectPosition: "center top" }}
           />
         </div>
 
@@ -59,12 +62,13 @@ export default function CoverStorySection() {
               "radial-gradient(ellipse 52% 62% at 62% 32%, black 0%, black 28%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.15) 70%, transparent 88%)",
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/images/magazine/karla-felmanas/banner-karla.png"
             alt="Karla Felmanas"
-            aria-hidden="true"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+            fill
+            sizes="100vw"
+            quality={80}
+            style={{ objectFit: "cover", objectPosition: "center top" }}
           />
         </div>
         {/* Textural layers */}

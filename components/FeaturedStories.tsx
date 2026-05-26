@@ -101,6 +101,7 @@ export default function FeaturedStories() {
                   src={story.image}
                   alt={story.title}
                   fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover opacity-75 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-700 ease-out"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                 />

@@ -186,6 +186,7 @@ export default function ConceptSection() {
                     src="/images/magazine/karla-felmanas/karla-editorial.jpg"
                     alt="Karla Felmanas Editorial"
                     fill
+                    sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover object-top"
                   />
                   {/* Glass sheen */}
